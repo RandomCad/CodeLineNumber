@@ -53,9 +53,24 @@ namespace RichTextNumbering
                     newParagraph.FontStyle = originalParagraph.FontStyle;
                     newParagraph.Foreground = originalParagraph.Foreground;
 
-                    // Add the line number and original text to the new paragraph
+                    // Add the line number
                     newParagraph.Inlines.Add(new Run(lineNumber + ": "));
-                    newParagraph.Inlines.AddRange(originalParagraph.Inlines);
+
+                    // Copy and add the original text to the new paragraph
+                    foreach (Inline inline in originalParagraph.Inlines)
+                    {
+                        if (inline is Run run)
+                        {
+                            Run newRun = new Run(run.Text);
+                            newRun.FontSize = run.FontSize;
+                            newRun.FontFamily = run.FontFamily;
+                            newRun.FontWeight = run.FontWeight;
+                            newRun.FontStyle = run.FontStyle;
+                            newRun.Foreground = run.Foreground;
+
+                            newParagraph.Inlines.Add(newRun);
+                        }
+                    }
 
                     // Add the new paragraph to the new document
                     newDoc.Blocks.Add(newParagraph);
