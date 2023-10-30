@@ -56,12 +56,14 @@ namespace RichTextNumbering
                     // Add the line number
                     newParagraph.Inlines.Add(new Run(lineNumber + ": "));
 
-                    // Copy and add the original text to the new paragraph
+                    // Copy and add the original text to the new paragraph with formatting
                     foreach (Inline inline in originalParagraph.Inlines)
                     {
                         if (inline is Run run)
                         {
                             Run newRun = new Run(run.Text);
+
+                            // Copy formatting from the original Run to the new Run
                             newRun.FontSize = run.FontSize;
                             newRun.FontFamily = run.FontFamily;
                             newRun.FontWeight = run.FontWeight;
@@ -70,6 +72,7 @@ namespace RichTextNumbering
 
                             newParagraph.Inlines.Add(newRun);
                         }
+                        // Handle other inline elements as needed
                     }
 
                     // Add the new paragraph to the new document
