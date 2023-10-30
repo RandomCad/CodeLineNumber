@@ -6,23 +6,20 @@ using Xceed.Words.NET;
 internal class Program
 {
     private static void Main(string[] args)
-    {
-        // Load the existing DOCX document
+    {// Load the existing DOCX document
         DocX doc = DocX.Load("input.docx");
 
         int lineNumber = 1;
 
         // Iterate through each paragraph in the document and add line numbers
-        for(int i = 0; i< doc.Paragraphs.Count; i+=2)
+        foreach (var paragraph in doc.Paragraphs)
         {
-            var paragraph = doc.Paragraphs[i];
-            // Insert the line number at the beginning of the paragraph
-            var run = paragraph.InsertParagraphAfterSelf(paragraph).Append($"{lineNumber}. ");
+            Xceed.Document.NET.Formatting paragraphFormatting = new Xceed.Document.NET.Formatting();
+            paragraphFormatting.FontColor = Color.Black;
+            paragraphFormatting.Bold = false;
+            paragraphFormatting.Italic = false;
 
-            // Set the formatting for the line numbers (e.g., black color)
-            run.Color(Color.Black);
-            run.Bold(); // You can also set other formatting options as needed
-
+            paragraph.InsertText(0, $"{lineNumber}.\t",false, paragraphFormatting);
             lineNumber++;
         }
 
