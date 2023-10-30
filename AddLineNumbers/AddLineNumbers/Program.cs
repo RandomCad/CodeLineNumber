@@ -7,26 +7,45 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        int i = 0;
-        DocX doc;
-        int lineNumber = 1;
-        do
+
+        string docxFile = string.Empty;
+        int? fromNumber = null;
+
+        for (int i = 0; i < args.Length; i++)
         {
-            switch (args[i])
+            if (args[i].EndsWith(".docx", StringComparison.OrdinalIgnoreCase))
             {
-                case "-v":
-                    i++;
-                    lineNumber = int.Parse(args[i++]);
-
-                    break;
-
-                default:
-                    // Load the existing DOCX document
-                    doc = DocX.Load(args[i++]);
-                    break;
+                docxFile = args[i];
             }
-        } while (args.Length < i);
+            else if (args[i] == "-f" && i < args.Length - 1)
+            {
+                if (int.TryParse(args[i + 1], out int number))
+                {
+                    fromNumber = number;
+                    i++; // Skip the next argument since it was successfully parsed as a number.
+                }
+            }
+            else if (args[i] == "-h" || args[i] == "--help")
+            {
+                Console.WriteLine("Usage: YourProgram.exe <docx_file> [-f <from_number>] [-h/--help]");
+                Console.WriteLine("  <docx_file>  - A string ending with '.docx'");
+                Console.WriteLine("  -f <from_number>  - Specify the 'start' number");
+                Console.WriteLine("  -h, --help  - Display this help message");
 
+                return;
+            }
+        }
+
+        if (!File.Exists(docxFile))
+        {
+            return;
+            
+        }
+
+        // Load the existing DOCX document
+        DocX doc = DocX.Load(docxFile);
+
+        int lineNumber = (int)fromNumber;
 
         // Iterate through each paragraph in the document and add line numbers
         foreach (var paragraph in doc.Paragraphs)
@@ -41,6 +60,6 @@ internal class Program
         }
 
         // Save the modified document to a new file
-        doc.SaveAs("output.docx");
+        doc.SaveAs($"out-{docxFile}");
     }
 }
