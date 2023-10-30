@@ -26,7 +26,8 @@ namespace RichTextNumbering
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {// Get the text from the RichTextBox
+        {
+            // Get the text from the RichTextBox
             TextRange textRange = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
 
             // Get the original text with formatting
@@ -50,7 +51,13 @@ namespace RichTextNumbering
                     TextPointer start = textRange.Start.GetPositionAtOffset(lines[i].Length, (LogicalDirection)i);
                     TextPointer end = start.GetPositionAtOffset(lines[i].Length, (LogicalDirection)1);
                     TextRange lineRange = new TextRange(start, end);
-                    run.TextDecorations = lineRange.TextDecorations;
+
+                    // Copy TextDecorations individually
+                    foreach (TextDecoration decoration in lineRange.TextDecorations)
+                    {
+                        run.TextDecorations.Add(decoration);
+                    }
+
                     run.FontFamily = lineRange.GetPropertyValue(TextElement.FontFamilyProperty) as FontFamily;
                     run.FontSize = (double)lineRange.GetPropertyValue(TextElement.FontSizeProperty);
                     run.FontWeight = (FontWeight)lineRange.GetPropertyValue(TextElement.FontWeightProperty);
