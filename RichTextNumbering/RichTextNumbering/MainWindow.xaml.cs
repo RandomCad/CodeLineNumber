@@ -25,12 +25,13 @@ namespace RichTextNumbering
             InitializeComponent();
         }
 
+
         private void AddLineNumbers_Click(object sender, RoutedEventArgs e)
         {
             // Replace this with your text source or file loading code
             string text = "Line 1\nLine 2\nLine 3\nLine 4";
 
-            lineNumberRichTextBox.AddLineNumbers(text);
+            lineNumberRichTextBox.AddLineNumbers(lineNumberRichTextBox.GetText());
         }
     }
 }

@@ -24,16 +24,19 @@ namespace RichTextNumbering
         {
             InitializeComponent();
         }
+        public string GetText()
+        {
+            TextRange textRange = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
+            return textRange.Text;
+        }
         public void AddLineNumbers(string text)
         {
             List<string> lines = text.Split('\n').ToList();
-            richTextBox.Document.Blocks.Clear();
             lineNumbers.Items.Clear();
 
             for (int i = 0; i < lines.Count; i++)
             {
                 lineNumbers.Items.Add((i + 1).ToString());
-                richTextBox.Document.Blocks.Add(new Paragraph(new Run(lines[i])));
             }
         }
     }
