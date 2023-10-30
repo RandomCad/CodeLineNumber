@@ -6,10 +6,27 @@ using Xceed.Words.NET;
 internal class Program
 {
     private static void Main(string[] args)
-    {// Load the existing DOCX document
-        DocX doc = DocX.Load("input.docx");
-
+    {
+        int i = 0;
+        DocX doc;
         int lineNumber = 1;
+        do
+        {
+            switch (args[i])
+            {
+                case "-v":
+                    i++;
+                    lineNumber = int.Parse(args[i++]);
+
+                    break;
+
+                default:
+                    // Load the existing DOCX document
+                    doc = DocX.Load(args[i++]);
+                    break;
+            }
+        } while (args.Length < i);
+
 
         // Iterate through each paragraph in the document and add line numbers
         foreach (var paragraph in doc.Paragraphs)

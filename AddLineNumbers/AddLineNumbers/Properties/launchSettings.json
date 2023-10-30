@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AddLineNumbers": {
+      "commandName": "Project",
+      "commandLineArgs": "input.docx -v 10"
+    }
+  }
+}
