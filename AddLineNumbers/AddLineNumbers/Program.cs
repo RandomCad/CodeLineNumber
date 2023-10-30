@@ -27,8 +27,8 @@ internal class Program
             }
             else if (args[i] == "-h" || args[i] == "--help")
             {
-                Console.WriteLine("Usage: YourProgram.exe <docx_file> [-f <from_number>] [-h/--help]");
-                Console.WriteLine("  <docx_file>  - A string ending with '.docx'");
+                Console.WriteLine($"Usage: {System.AppDomain.CurrentDomain.FriendlyName} <docx_file> [-f <start_numbering_from>] [-h/--help]");
+                Console.WriteLine("  <docx_file>  - The docx file witch is to be numbered");
                 Console.WriteLine("  -f <from_number>  - Specify the 'start' number");
                 Console.WriteLine("  -h, --help  - Display this help message");
 
