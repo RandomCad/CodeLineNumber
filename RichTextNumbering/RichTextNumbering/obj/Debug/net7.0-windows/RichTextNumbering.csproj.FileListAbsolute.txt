@@ -38,3 +38,6 @@ C:\Users\Public\Documents\C#\CodeLineNumber\RichTextNumbering\RichTextNumbering\
 C:\Users\Public\Documents\C#\CodeLineNumber\RichTextNumbering\RichTextNumbering\obj\Debug\net7.0-windows\RichTextNumbering.pdb
 C:\Users\Public\Documents\C#\CodeLineNumber\RichTextNumbering\RichTextNumbering\obj\Debug\net7.0-windows\RichTextNumbering.genruntimeconfig.cache
 C:\Users\Public\Documents\C#\CodeLineNumber\RichTextNumbering\RichTextNumbering\obj\Debug\net7.0-windows\ref\RichTextNumbering.dll
+C:\Users\Public\Documents\C#\CodeLineNumber\RichTextNumbering\RichTextNumbering\obj\Debug\net7.0-windows\LineNumberRichTextBox.g.cs
+C:\Users\Public\Documents\C#\CodeLineNumber\RichTextNumbering\RichTextNumbering\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Public\Documents\C#\CodeLineNumber\RichTextNumbering\RichTextNumbering\obj\Debug\net7.0-windows\LineNumberRichTextBox.baml
