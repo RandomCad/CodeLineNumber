@@ -20,10 +20,16 @@ The final commit to this part of the Programm created a fisualy "working" soluti
 ## 2. AddLineNumbering
 This second projekt is the result of the description of the Problem to chat-gpt and asking it for the code.  
 The original Prompt was:  
-    I need to add line numbers to a formated rich text. how cann i do that automaticaly
+ 
+
+
+ I need to add line numbers to a formated rich text. how cann i do that automaticaly
 From this chatgpt created a python projekt which wasend used since c# sould be used for the Projekt. 
 Therfor chatgpt was asked to rewerite the programm in c# throw the folowing prompt:  
-    i cant write phyton. Can you write the programm in c#
+ 
+
+
+ i cant write phyton. Can you write the programm in c#
 Thie created the first correct anser to the problem.  
 The only downside to this solution is, that the numbers have the same Formating as the beginn of the text line. This was commit SHA 787d6fb9197b5424aef48f770e18fa36d1505230.  
 In the commit d327515c71cc8b96ecc39e1368a105f5dd4668c8 the numbering problem was solved. This was done manualy with the help of chatgpt. Afther this all folowing commits were regarding the CLI interface wich was created at the end moustly throw chatgpt.  
