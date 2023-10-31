@@ -8,14 +8,14 @@ The projekt contains the folwoing subprojekts:
 * RichTextNumbering
 * AddLineNumbers
 
-# RichTextNumbering 1
+## 1. RichTextNumbering
 This was the first try of adding linenumbers to the 'code' in richtext form. The idear was to use a *WPF* apication with a 'RichTextBox'.
 The editing in the TextBox wasn't posibel with chatgpt.
 The final commit to this part of the Programm created a fisualy "working" solution. But the text wasn't copiebel and therfor the solution wasn't a solution to the problem. A new aproch wase used in the second subproject.
 
-# AddLineNumbering 1
-This second projekt is the result of the description of the Problem to chat-gpt and asking it for the code.
-The original Prompt was:
+## 2. AddLineNumbering
+This second projekt is the result of the description of the Problem to chat-gpt and asking it for the code.  
+The original Prompt was:  
     I need to add line numbers to a formated rich text. how cann i do that automaticaly
 From this chatgpt created a python projekt which wasend used since c# sould be used for the Projekt. Therfor chatgpt was asked to rewerite the programm in c# throw the folowing prompt:
     i cant write phyton. Can you write the programm in c#
